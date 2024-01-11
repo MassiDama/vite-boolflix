@@ -11,7 +11,7 @@ export default {
 
 <template>
 <div class="poster">
-    <img :src=" `https://image.tmdb.org/t/p/w342/${info.poster_path}` " :alt="info.original_title">
+    <img :src=" `https://image.tmdb.org/t/p/w342/${info.poster_path}` " alt="">
 </div>
 
 </template>

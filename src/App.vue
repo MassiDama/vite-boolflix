@@ -24,6 +24,7 @@ export default {
       let myUrl = store.movieUrl;
 
       if (store.searchText !== "") {
+        console.log("ho clicckato");
         myUrl += `&query=${store.searchText}`;
       }
 
