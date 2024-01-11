@@ -20,12 +20,12 @@ export default {
         </div>
         <div class="search-bar">
             <input type="text" placeholder=" Inserisci un film ">
-            <button>Invia</button>
+            <button @click="$emit('search')">Search</button>
         </div>
     </header>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 header{
     width: 100%;
     height: 70px;
