@@ -37,6 +37,8 @@ export default {
           console.log("error", err);
         })
 
+        
+
     }
   }, 
   created() {
@@ -48,6 +50,7 @@ export default {
 
 <template>
   <AppHeader @search="getMovie" />
+  <AppMain />
 </template>
 
 <style lang="scss">
