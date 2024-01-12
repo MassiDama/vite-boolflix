@@ -18,12 +18,21 @@ export default {
 
 <template>
 <div class="container">
+   
     <h1> Movies </h1>
     <div class="movies">
         <div class="movie-item" v-for="movie in store.movieList" :key="movie.id"> 
             <AppCard :info="movie" />
         </div>
     </div>
+
+    <h1> TV Series</h1>
+    <div class="movies">
+        <div class="movie-item" v-for="serie in store.serieList" :key="serie.id"> 
+            <AppCard :info="serie" />
+        </div>
+    </div>
+    
 </div>
 </template>
 

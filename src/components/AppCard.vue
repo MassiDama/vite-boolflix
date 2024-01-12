@@ -12,19 +12,17 @@ export default {
 <template>
 <div class="flip-container">
     <div class="flipper">
-        <!-- parte poster del film (front)  -->
+        <!-- parte poster del film || serie tv (front)  -->
         <div class="poster">
             <img :src=" `https://image.tmdb.org/t/p/w342/${info.poster_path}` " alt="">
         </div>
-        <!--  parte descrizione del film (back) -->
+        <!--  parte descrizione del film || serie tv (back) -->
         <div class="info">
-            <div> Titolo: <span> {{ info.title }}</span> </div>
-            <div> Titolo originale: <span> {{ info.original_title }}</span> </div>
+            <div> Titolo: <span> {{ info.title || info.name }}</span> </div>
+            <div> Titolo originale: <span> {{ info.original_title || original_name }}</span> </div>
             <div class="lenguage"> </div>
             <div class="vote"> Voto: <span></span> </div>
             <div> Overview: <span> {{ info.overview }}</span></div>
-            
-
         </div>
 </div>
 </div>
