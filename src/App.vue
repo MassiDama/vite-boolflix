@@ -21,16 +21,17 @@ export default {
   },
   methods: {
     getMovie() {
-      let myUrl = store.movieUrl;
-
-      if (store.searchText !== "") {
-        console.log("ho clicckato");
-        myUrl += `&query=${store.searchText}`;
-      }
+      let mUrl = store.movieUrl;
+      let sUrl = store.serieUrl;
 
       // chiamata movie 
+      if (store.searchText !== "") {
+        console.log("ho clicckato");
+        mUrl += `&query=${store.searchText}`;
+      }
+
       axios
-      .get(myUrl)
+      .get(mUrl)
         .then((res => {
           store.movieList = res.data.results;
         }))
@@ -38,6 +39,19 @@ export default {
           console.log("error", err);
         })
 
+        // chiamata serie tv
+        if (store.searchText !== "") {
+          sUrl += `&query=${store.searchText}`;
+        }
+
+        axios
+        .get(sUrl)
+          .then((res => {
+            store.serieList = res.data.results;
+          }))
+          .catch((err) => {
+            console.log("error", err);
+          })
         
 
     }
