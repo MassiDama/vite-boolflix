@@ -21,14 +21,17 @@ export default {
             <div> Titolo: <span> {{ info.title || info.name }}</span> </div>
             <div> Titolo originale: <span> {{ info.original_title || original_name }}</span> </div>
             <div class="lenguage"> </div>
-            <div class="vote"> Voto: <span></span> </div>
+            <div class="vote"> Voto: <span> <i class="fa fa-star-o"></i> <i class="fa-regular fa-star"></i></span> </div>
             <div> Overview: <span> {{ info.overview }}</span></div>
+            <i class="fa-regular fa-star"></i>
         </div>
+        
 </div>
 </div>
 </template>
 
 <style lang="scss" scoped>
+
 .flip-container{
     width: 100%;
     height: 100%;
