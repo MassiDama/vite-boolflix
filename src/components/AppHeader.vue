@@ -19,7 +19,7 @@ export default {
             BOOLFIX
         </div>
         <div class="search-bar">
-            <input type="text" placeholder=" Inserisci un film " v-model="store.searchText">
+            <input type="text" placeholder=" Inserisci un film " v-model="store.searchText" @keyup.enter="$emit('search')">
             <button type="submit" @click="$emit('search')">Search</button>
         </div>
     </header>

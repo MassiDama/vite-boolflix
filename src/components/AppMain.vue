@@ -29,12 +29,22 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
 
     h1 {
         font-size: 35px;
         padding-top: 20px;
+    }
+
+    .movies {
+        display: flex;
+        flex-wrap: wrap;
+
+        .movie-item {
+            width: calc(100% / 4);
+            height: 100%;
+        }
     }
 }
 
