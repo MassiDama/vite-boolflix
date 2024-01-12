@@ -5,6 +5,11 @@ export default {
     props: {
         info: Object
     },
+    computed: {
+        rankingVote() {
+            return Math.ceil(this.info.vote_average/2);
+        }
+    }
 }
 
 </script>
@@ -21,9 +26,14 @@ export default {
             <div> Titolo: <span> {{ info.title || info.name }}</span> </div>
             <div> Titolo originale: <span> {{ info.original_title || original_name }}</span> </div>
             <div class="lenguage"> </div>
-            <div class="vote"> Voto: <span> <i class="fa fa-star-o"></i> <i class="fa-regular fa-star"></i></span> </div>
+            <!-- ciclo di 5 stelle + aggiunta di classe a seconda del rankingVote -->
+            <div class="vote"> Voto:
+                 <span v-for="i in 5" > 
+                    <i :class=" i <= rankingVote ? 'fa-solid fa-star' : 'fa-regular fa-star' " ></i>
+                </span> 
+            </div>
             <div> Overview: <span> {{ info.overview }}</span></div>
-            <i class="fa-regular fa-star"></i>
+            
         </div>
         
 </div>

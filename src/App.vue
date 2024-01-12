@@ -26,7 +26,6 @@ export default {
 
       // chiamata movie 
       if (store.searchText !== "") {
-        console.log("ho clicckato");
         mUrl += `&query=${store.searchText}`;
       }
 
