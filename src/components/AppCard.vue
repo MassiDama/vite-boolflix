@@ -5,6 +5,20 @@ export default {
     props: {
         info: Object
     },
+    data() {
+        return {
+            flags: {
+                it: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Flag_of_the_Repubblica_Cisalpina.svg/220px-Flag_of_the_Repubblica_Cisalpina.svg.png",
+                en: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/280px-Flag_of_the_United_Kingdom_%281-2%29.svg.png",
+                ja: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/280px-Flag_of_Japan.svg.png",
+                de: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/2000px-Flag_of_Germany.svg.png",
+                es: "https://italflag.it/wp-content/uploads/2021/11/Bandiera-Spagna.jpg"
+
+            },
+
+            flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Flag_of_Albania.svg/280px-Flag_of_Albania.svg.png',
+        } 
+    },
     computed: {
         rankingVote() {
             return Math.ceil(this.info.vote_average/2);
@@ -25,7 +39,14 @@ export default {
         <div class="info">
             <div> Titolo: <span> {{ info.title || info.name }}</span> </div>
             <div> Titolo originale: <span> {{ info.original_title || original_name }}</span> </div>
-            <div class="lenguage"> </div>
+            <!-- condizione bandiera lingue -->
+            <div class="lenguage" v-if="flags[info.original_language]"> 
+                <img :src=" flags[info.original_language] "  alt="">
+            </div>
+            <div class="lenguage" v-else> 
+                <img :src="flag"  alt="">
+            </div>
+
             <!-- ciclo di 5 stelle + aggiunta di classe a seconda del rankingVote -->
             <div class="vote"> Voto:
                  <span v-for="i in 5" > 
@@ -33,10 +54,9 @@ export default {
                 </span> 
             </div>
             <div> Overview: <span> {{ info.overview }}</span></div>
-            
         </div>
         
-</div>
+    </div>
 </div>
 </template>
 
@@ -89,6 +109,14 @@ export default {
         span {
             font-size: small;
             color: rgba(255, 255, 255, 0.77);
+        }
+    }
+
+    .lenguage {
+        width: 150px;
+
+        img {
+            width: 100%;
         }
     }
 }
