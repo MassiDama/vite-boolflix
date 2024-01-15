@@ -53,7 +53,7 @@ export default {
                     <i :class=" i <= rankingVote ? 'fa-solid fa-star' : 'fa-regular fa-star' " ></i>
                 </span> 
             </div>
-            <div> Overview: <span> {{ info.overview }}</span></div>
+            <div> Overview: <span> {{ info.overview }} </span> </div>
         </div>
         
     </div>

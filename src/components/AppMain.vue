@@ -17,8 +17,8 @@ export default {
 </script>
 
 <template>
-<div class="container">
-   
+
+<div v-if=" store.searchText !== '' " class="container">
     <h1> Movies </h1>
     <div class="movies">
         <div class="movie-item" v-for="movie in store.movieList" :key="movie.id"> 
@@ -32,7 +32,10 @@ export default {
             <AppCard :info="serie" />
         </div>
     </div>
-    
+</div>
+
+<div class="empty-content" v-else>
+    Fai la tua ricerca..
 </div>
 </template>
 
@@ -55,6 +58,14 @@ export default {
             height: 100%;
         }
     }
+}
+
+.empty-content {
+    width: 90%;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 100px;
+    font-size: 50px;
 }
 
 </style>
